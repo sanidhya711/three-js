@@ -7,13 +7,20 @@
     <style>
         body{
             margin: 0;
-        }canvas{
+        }
+        canvas{
             position: absolute;
-            top: 0;
+        }
+        video{
+            position: absolute;
+            object-fit: fill;
+            height: 100vh;
+            width: 100vw;
         }
     </style>
 </head>
-<body>
+<body>       
+    <video muted autoplay src="particles.mp4">
     <script type="module" src="index.js"></script>
 </body>
 </html>

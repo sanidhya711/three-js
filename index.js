@@ -11,14 +11,15 @@ animate();
 
 function init()
 {
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({alpha:true});
     var width = window.innerWidth;
     var height = window.innerHeight;
     renderer.setSize (width, height);
     document.body.appendChild (renderer.domElement);
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera (45, width/height, 1, 10000);
-    camera.position.set(0,400,160);
+    scene.background = null;
+    camera = new THREE.PerspectiveCamera (45,width/height,1,10000);
+    camera.position.set(200,200,200);
     camera.lookAt (0,0,0); 
     controls = new OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
@@ -56,7 +57,7 @@ function loadTextures(){
         scene.add(box);
     });
 
-    loader.load('naruto.jpg',
+    loader.load('shirogane.jpg',
     function ( texture ) {
         var geometry = new THREE.BoxGeometry(50,50,50);
         var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
