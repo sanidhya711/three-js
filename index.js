@@ -17,7 +17,7 @@ function init()
     renderer.setSize (width, height);
     document.body.appendChild (renderer.domElement);
     scene = new THREE.Scene();
-    scene.background = null;
+    renderer.setClearColor(0x000000,0 ); 
     camera = new THREE.PerspectiveCamera (45,width/height,1,10000);
     camera.position.set(200,200,200);
     camera.lookAt (0,0,0); 
@@ -34,7 +34,7 @@ function loadTextures(){
     loader.load('saikik.png',
         function ( texture ) {
             var geometry = new THREE.BoxGeometry(50,50,50);
-            var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
+            var material = new THREE.MeshBasicMaterial({map:texture});
             var box = new THREE.Mesh(geometry,material);
             scene.add(box);
     });
@@ -42,7 +42,7 @@ function loadTextures(){
     loader.load('levi.jpg',
         function ( texture ) {
             var geometry = new THREE.BoxGeometry(50,50,50);
-            var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
+            var material = new THREE.MeshBasicMaterial({map:texture});
             var box = new THREE.Mesh(geometry,material);
             box.position.x=100;
             scene.add(box);
@@ -51,7 +51,7 @@ function loadTextures(){
     loader.load('lalouche.jpg',
     function ( texture ) {
         var geometry = new THREE.BoxGeometry(50,50,50);
-        var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
+        var material = new THREE.MeshBasicMaterial({map:texture});
         var box = new THREE.Mesh(geometry,material);
         box.position.x=-100;
         scene.add(box);
@@ -60,7 +60,7 @@ function loadTextures(){
     loader.load('shirogane.jpg',
     function ( texture ) {
         var geometry = new THREE.BoxGeometry(50,50,50);
-        var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
+        var material = new THREE.MeshBasicMaterial({map:texture});
         var box = new THREE.Mesh(geometry,material);
         box.position.y=100;
         scene.add(box);
@@ -69,7 +69,7 @@ function loadTextures(){
     loader.load('naruto.jpg',
     function ( texture ) {
         var geometry = new THREE.BoxGeometry(50,50,50);
-        var material = new THREE.MeshBasicMaterial({color:0xF22FFF,map:texture});
+        var material = new THREE.MeshBasicMaterial({map:texture});
         var box = new THREE.Mesh(geometry,material);
         box.position.y=-100;
         scene.add(box);
@@ -84,7 +84,7 @@ function animate()
     raycaster.setFromCamera( mouse, camera );
 	const intersects = raycaster.intersectObjects( scene.children );
 	for ( let i = 0; i < intersects.length; i ++ ) {
-		intersects[ i ].object.material.color.set( 0xFFFFFF );
+		intersects[ i ].object.material.color.set( 0xF22FFF );
     }
     
     renderer.render (scene, camera);
